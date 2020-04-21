@@ -2,15 +2,29 @@
   <div id="app">
     <!-- the key here makes sure components get reloaded when the url changes, including query params -->
     <router-view :key="$route.fullPath"/>
+    <Modal v-if="modalActive"/>
   </div>
 </template>
 
 <script>
-
+import Modal from './components/Modal'
+import { mapState } from 'vuex'
 
 export default {
-  components: {
+  data() {
+    return {
 
+    }
+  },
+
+  computed: {
+    ...mapState({
+      modalActive: state => state.modalActive
+    })
+  },
+
+  components: {
+    Modal
   }
 }
 </script>
@@ -30,7 +44,7 @@ body {
 }
 #app {
   box-sizing: border-box;
-  width: 900px;
+  width: 1300px;
   padding: 0 20px 20px;
   margin: 0 auto;
 }

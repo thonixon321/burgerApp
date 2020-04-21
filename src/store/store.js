@@ -15,8 +15,30 @@ export const store = new Vuex.Store({
     burger,
     notification
   },
+
   state: {
-    categories: []
+    modalActive: false,
+    modalContent: {}
+  },
+
+  mutations: {
+    SET_MODAL_STATUS(state, status) {
+      state.modalActive = status
+    },
+
+    SET_MODAL_CONTENT(state, content) {
+      state.modalContent = content
+    }
+  },
+
+  actions: {
+    updateModalStatus({ commit }, status) {
+      commit('SET_MODAL_STATUS', status)
+    },
+
+    updateModalContent({ commit }, content) {
+      commit('SET_MODAL_CONTENT', content)
+    },
   }
 })
 
